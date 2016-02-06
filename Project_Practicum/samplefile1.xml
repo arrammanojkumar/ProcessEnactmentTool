@@ -1,0 +1,652 @@
+<object-stream>
+  <processElements.Definitions>
+    <artifacts>
+      <artifactList>
+        <processElements.Artifact>
+          <name>artifact1</name>
+          <description></description>
+        </processElements.Artifact>
+        <processElements.Artifact>
+          <name>artifact2</name>
+          <description></description>
+        </processElements.Artifact>
+      </artifactList>
+      <numberOfArtifacts>2</numberOfArtifacts>
+    </artifacts>
+    <coniditons>
+      <conditionList>
+        <processElements.Condition>
+          <name>condition1</name>
+          <description></description>
+          <state>true</state>
+        </processElements.Condition>
+        <processElements.Condition>
+          <name>condition2</name>
+          <description></description>
+          <state>true</state>
+        </processElements.Condition>
+      </conditionList>
+      <numberOfConditions>2</numberOfConditions>
+    </coniditons>
+    <defects>
+      <defectList>
+        <processElements.Defect>
+          <name>defect1</name>
+          <description></description>
+        </processElements.Defect>
+        <processElements.Defect>
+          <name>defect2</name>
+          <description></description>
+        </processElements.Defect>
+      </defectList>
+      <numberOfDefects>2</numberOfDefects>
+    </defects>
+    <effortCategories>
+      <effortCategoryList>
+        <processElements.EffortCategory>
+          <name>effortcategory1</name>
+          <description></description>
+          <kind>0</kind>
+          <aList>
+            <root reference="../../../../../artifacts"/>
+            <artifactList>
+              <processElements.Artifact reference="../../../../../../artifacts/artifactList/processElements.Artifact"/>
+            </artifactList>
+            <numberOfArtifacts>1</numberOfArtifacts>
+          </aList>
+          <pList>
+            <planList/>
+            <numberOfPlans>0</numberOfPlans>
+          </pList>
+          <iList>
+            <interruptionList/>
+            <numberOfInterruptions>0</numberOfInterruptions>
+          </iList>
+          <dList>
+            <defectList/>
+            <numberOfDefects>0</numberOfDefects>
+          </dList>
+          <aNull>
+            <artifactList/>
+            <numberOfArtifacts>0</numberOfArtifacts>
+          </aNull>
+          <pNull reference="../pList"/>
+          <iNull reference="../iList"/>
+          <dNull reference="../dList"/>
+        </processElements.EffortCategory>
+        <processElements.EffortCategory>
+          <name>effortcategory2</name>
+          <description></description>
+          <kind>1</kind>
+          <aList>
+            <artifactList/>
+            <numberOfArtifacts>0</numberOfArtifacts>
+          </aList>
+          <pList>
+            <root>
+              <planList>
+                <processElements.Plan>
+                  <name>plan1</name>
+                  <description></description>
+                </processElements.Plan>
+                <processElements.Plan>
+                  <name>plan2</name>
+                  <description></description>
+                </processElements.Plan>
+              </planList>
+              <numberOfPlans>2</numberOfPlans>
+            </root>
+            <planList>
+              <processElements.Plan reference="../../root/planList/processElements.Plan"/>
+              <processElements.Plan reference="../../root/planList/processElements.Plan[2]"/>
+            </planList>
+            <numberOfPlans>2</numberOfPlans>
+          </pList>
+          <iList>
+            <interruptionList/>
+            <numberOfInterruptions>0</numberOfInterruptions>
+          </iList>
+          <dList>
+            <defectList/>
+            <numberOfDefects>0</numberOfDefects>
+          </dList>
+          <aNull reference="../aList"/>
+          <pNull>
+            <planList/>
+            <numberOfPlans>0</numberOfPlans>
+          </pNull>
+          <iNull reference="../iList"/>
+          <dNull reference="../dList"/>
+        </processElements.EffortCategory>
+        <processElements.EffortCategory>
+          <name>effortcategory21</name>
+          <description></description>
+          <kind>2</kind>
+          <aList>
+            <artifactList/>
+            <numberOfArtifacts>0</numberOfArtifacts>
+          </aList>
+          <pList>
+            <planList/>
+            <numberOfPlans>0</numberOfPlans>
+          </pList>
+          <iList>
+            <root>
+              <root reference=".."/>
+              <interruptionList>
+                <processElements.Interruption>
+                  <name>interruption1</name>
+                  <description></description>
+                </processElements.Interruption>
+                <processElements.Interruption>
+                  <name>interruption2</name>
+                  <description></description>
+                </processElements.Interruption>
+              </interruptionList>
+              <numberOfInterruptions>2</numberOfInterruptions>
+            </root>
+            <interruptionList>
+              <processElements.Interruption reference="../../root/interruptionList/processElements.Interruption"/>
+              <processElements.Interruption reference="../../root/interruptionList/processElements.Interruption[2]"/>
+            </interruptionList>
+            <numberOfInterruptions>2</numberOfInterruptions>
+          </iList>
+          <dList>
+            <defectList/>
+            <numberOfDefects>0</numberOfDefects>
+          </dList>
+          <aNull reference="../aList"/>
+          <pNull reference="../pList"/>
+          <iNull>
+            <interruptionList/>
+            <numberOfInterruptions>0</numberOfInterruptions>
+          </iNull>
+          <dNull reference="../dList"/>
+        </processElements.EffortCategory>
+      </effortCategoryList>
+      <numberOfEffortCategories>3</numberOfEffortCategories>
+      <aNull>
+        <artifactList/>
+        <numberOfArtifacts>0</numberOfArtifacts>
+      </aNull>
+      <pNull>
+        <planList/>
+        <numberOfPlans>0</numberOfPlans>
+      </pNull>
+      <iNull>
+        <interruptionList/>
+        <numberOfInterruptions>0</numberOfInterruptions>
+      </iNull>
+      <dNull>
+        <defectList/>
+        <numberOfDefects>0</numberOfDefects>
+      </dNull>
+    </effortCategories>
+    <interruptions reference="../effortCategories/effortCategoryList/processElements.EffortCategory[3]/iList/root"/>
+    <lifeCycles>
+      <lifeCycleList>
+        <processElements.LifeCycle>
+          <name>lif11</name>
+          <description></description>
+          <subLifeCycleList>
+            <root reference="../../../.."/>
+            <lifeCycleList/>
+            <numberOfLifeCycles>0</numberOfLifeCycles>
+          </subLifeCycleList>
+          <lifeCycleIterConditionList>
+            <root>
+              <conditionList>
+                <processElements.Condition reference="../../../../../../../coniditons/conditionList/processElements.Condition"/>
+              </conditionList>
+              <numberOfConditions>1</numberOfConditions>
+            </root>
+            <conditionList/>
+            <numberOfConditions>0</numberOfConditions>
+          </lifeCycleIterConditionList>
+          <lglLifeCycleComposedOfSteps>true</lglLifeCycleComposedOfSteps>
+          <nxtLifeCycleIterMode>0</nxtLifeCycleIterMode>
+          <lifecyclesteplist>
+            <root>
+              <lifeCycleStepList>
+                <processElements.LifeCycleStep>
+                  <lifeCycleStep>
+                    <name>step1</name>
+                    <description></description>
+                    <preConditionList>
+                      <root reference="../../../../../../../../../../coniditons"/>
+                      <conditionList>
+                        <processElements.Condition reference="../../../../../../../../../../../coniditons/conditionList/processElements.Condition"/>
+                      </conditionList>
+                      <numberOfConditions>1</numberOfConditions>
+                    </preConditionList>
+                    <postConditionList>
+                      <root reference="../../../../../../../../../../coniditons"/>
+                      <conditionList>
+                        <processElements.Condition reference="../../../../../../../../../../../coniditons/conditionList/processElements.Condition[2]"/>
+                      </conditionList>
+                      <numberOfConditions>1</numberOfConditions>
+                    </postConditionList>
+                    <taskList>
+                      <root>
+                        <taskList>
+                          <processElements.Task>
+                            <name>task1</name>
+                            <description></description>
+                            <artifactsUsed>
+                              <root reference="../../../../../../../../../../../../../../artifacts"/>
+                              <artifactList>
+                                <processElements.Artifact reference="../../../../../../../../../../../../../../../artifacts/artifactList/processElements.Artifact"/>
+                              </artifactList>
+                              <numberOfArtifacts>1</numberOfArtifacts>
+                            </artifactsUsed>
+                            <artifactsProduced>
+                              <root reference="../../../../../../../../../../../../../../artifacts"/>
+                              <artifactList>
+                                <processElements.Artifact reference="../../../../../../../../../../../../../../../artifacts/artifactList/processElements.Artifact[2]"/>
+                              </artifactList>
+                              <numberOfArtifacts>1</numberOfArtifacts>
+                            </artifactsProduced>
+                          </processElements.Task>
+                          <processElements.Task>
+                            <name>task2</name>
+                            <description></description>
+                            <artifactsUsed>
+                              <root reference="../../../../../../../../../../../../../../artifacts"/>
+                              <artifactList>
+                                <processElements.Artifact reference="../../../../../../../../../../../../../../../artifacts/artifactList/processElements.Artifact"/>
+                                <processElements.Artifact reference="../../../../../../../../../../../../../../../artifacts/artifactList/processElements.Artifact[2]"/>
+                              </artifactList>
+                              <numberOfArtifacts>2</numberOfArtifacts>
+                            </artifactsUsed>
+                            <artifactsProduced>
+                              <root reference="../../../../../../../../../../../../../../artifacts"/>
+                              <artifactList>
+                                <processElements.Artifact reference="../../../../../../../../../../../../../../../artifacts/artifactList/processElements.Artifact[2]"/>
+                              </artifactList>
+                              <numberOfArtifacts>1</numberOfArtifacts>
+                            </artifactsProduced>
+                          </processElements.Task>
+                        </taskList>
+                        <numberOfTasks>2</numberOfTasks>
+                      </root>
+                      <taskList>
+                        <processElements.Task reference="../../root/taskList/processElements.Task"/>
+                      </taskList>
+                      <numberOfTasks>1</numberOfTasks>
+                    </taskList>
+                  </lifeCycleStep>
+                  <default__delivarable>0</default__delivarable>
+                  <artifactEffortList>
+                    <root reference="../../../../../../../../../artifacts"/>
+                    <artifactList>
+                      <processElements.Artifact reference="../../../../../../../../../../artifacts/artifactList/processElements.Artifact"/>
+                    </artifactList>
+                    <numberOfArtifacts>1</numberOfArtifacts>
+                  </artifactEffortList>
+                  <planEffortList>
+                    <root reference="../../../../../../../../../effortCategories/effortCategoryList/processElements.EffortCategory[2]/pList/root"/>
+                    <planList/>
+                    <numberOfPlans>0</numberOfPlans>
+                  </planEffortList>
+                  <interruptionEffortList>
+                    <root reference="../../../../../../../../../effortCategories/effortCategoryList/processElements.EffortCategory[3]/iList/root"/>
+                    <interruptionList/>
+                    <numberOfInterruptions>0</numberOfInterruptions>
+                  </interruptionEffortList>
+                  <defectEffortList>
+                    <root reference="../../../../../../../../../defects"/>
+                    <defectList/>
+                    <numberOfDefects>0</numberOfDefects>
+                  </defectEffortList>
+                  <otherName></otherName>
+                  <otherDesc></otherDesc>
+                </processElements.LifeCycleStep>
+                <processElements.LifeCycleStep>
+                  <lifeCycleStep>
+                    <name>step2</name>
+                    <description></description>
+                    <preConditionList>
+                      <root reference="../../../../../../../../../../coniditons"/>
+                      <conditionList>
+                        <processElements.Condition reference="../../../../../../../../../../../coniditons/conditionList/processElements.Condition"/>
+                      </conditionList>
+                      <numberOfConditions>1</numberOfConditions>
+                    </preConditionList>
+                    <postConditionList>
+                      <root reference="../../../../../../../../../../coniditons"/>
+                      <conditionList>
+                        <processElements.Condition reference="../../../../../../../../../../../coniditons/conditionList/processElements.Condition[2]"/>
+                      </conditionList>
+                      <numberOfConditions>1</numberOfConditions>
+                    </postConditionList>
+                    <taskList>
+                      <root reference="../../../../processElements.LifeCycleStep/lifeCycleStep/taskList/root"/>
+                      <taskList>
+                        <processElements.Task reference="../../../../../processElements.LifeCycleStep/lifeCycleStep/taskList/root/taskList/processElements.Task"/>
+                      </taskList>
+                      <numberOfTasks>1</numberOfTasks>
+                    </taskList>
+                  </lifeCycleStep>
+                  <default__delivarable>-1</default__delivarable>
+                  <artifactEffortList>
+                    <root reference="../../../../../../../../../artifacts"/>
+                    <artifactList>
+                      <processElements.Artifact reference="../../../../../../../../../../artifacts/artifactList/processElements.Artifact"/>
+                    </artifactList>
+                    <numberOfArtifacts>1</numberOfArtifacts>
+                  </artifactEffortList>
+                  <planEffortList>
+                    <root reference="../../../../../../../../../effortCategories/effortCategoryList/processElements.EffortCategory[2]/pList/root"/>
+                    <planList/>
+                    <numberOfPlans>0</numberOfPlans>
+                  </planEffortList>
+                  <interruptionEffortList>
+                    <root reference="../../../../../../../../../effortCategories/effortCategoryList/processElements.EffortCategory[3]/iList/root"/>
+                    <interruptionList/>
+                    <numberOfInterruptions>0</numberOfInterruptions>
+                  </interruptionEffortList>
+                  <defectEffortList>
+                    <root reference="../../../../../../../../../defects"/>
+                    <defectList/>
+                    <numberOfDefects>0</numberOfDefects>
+                  </defectEffortList>
+                  <otherName></otherName>
+                  <otherDesc></otherDesc>
+                </processElements.LifeCycleStep>
+              </lifeCycleStepList>
+              <numberOfLifeCycleSteps>2</numberOfLifeCycleSteps>
+            </root>
+            <lifeCycleStepList>
+              <processElements.LifeCycleStep reference="../../root/lifeCycleStepList/processElements.LifeCycleStep"/>
+            </lifeCycleStepList>
+            <numberOfLifeCycleSteps>1</numberOfLifeCycleSteps>
+          </lifecyclesteplist>
+        </processElements.LifeCycle>
+        <processElements.LifeCycle>
+          <name>lif2</name>
+          <description></description>
+          <subLifeCycleList>
+            <root reference="../../../.."/>
+            <lifeCycleList/>
+            <numberOfLifeCycles>0</numberOfLifeCycles>
+          </subLifeCycleList>
+          <lifeCycleIterConditionList>
+            <root reference="../../../processElements.LifeCycle/lifeCycleIterConditionList/root"/>
+            <conditionList/>
+            <numberOfConditions>0</numberOfConditions>
+          </lifeCycleIterConditionList>
+          <lglLifeCycleComposedOfSteps>true</lglLifeCycleComposedOfSteps>
+          <nxtLifeCycleIterMode>0</nxtLifeCycleIterMode>
+          <lifecyclesteplist>
+            <root reference="../../../processElements.LifeCycle/lifecyclesteplist/root"/>
+            <lifeCycleStepList>
+              <processElements.LifeCycleStep reference="../../../../processElements.LifeCycle/lifecyclesteplist/root/lifeCycleStepList/processElements.LifeCycleStep"/>
+              <processElements.LifeCycleStep reference="../../../../processElements.LifeCycle/lifecyclesteplist/root/lifeCycleStepList/processElements.LifeCycleStep[2]"/>
+            </lifeCycleStepList>
+            <numberOfLifeCycleSteps>2</numberOfLifeCycleSteps>
+          </lifecyclesteplist>
+        </processElements.LifeCycle>
+        <processElements.LifeCycle>
+          <name>lif3</name>
+          <description></description>
+          <subLifeCycleList>
+            <root reference="../../../.."/>
+            <lifeCycleList>
+              <processElements.LifeCycle reference="../../../../processElements.LifeCycle"/>
+            </lifeCycleList>
+            <numberOfLifeCycles>1</numberOfLifeCycles>
+          </subLifeCycleList>
+          <lifeCycleIterConditionList>
+            <root reference="../../../processElements.LifeCycle/lifeCycleIterConditionList/root"/>
+            <conditionList/>
+            <numberOfConditions>0</numberOfConditions>
+          </lifeCycleIterConditionList>
+          <lglLifeCycleComposedOfSteps>false</lglLifeCycleComposedOfSteps>
+          <nxtLifeCycleIterMode>0</nxtLifeCycleIterMode>
+          <lifecyclesteplist>
+            <root reference="../../../processElements.LifeCycle/lifecyclesteplist/root"/>
+            <lifeCycleStepList>
+              <processElements.LifeCycleStep reference="../../../../processElements.LifeCycle/lifecyclesteplist/root/lifeCycleStepList/processElements.LifeCycleStep"/>
+              <processElements.LifeCycleStep reference="../../../../processElements.LifeCycle/lifecyclesteplist/root/lifeCycleStepList/processElements.LifeCycleStep[2]"/>
+            </lifeCycleStepList>
+            <numberOfLifeCycleSteps>2</numberOfLifeCycleSteps>
+          </lifecyclesteplist>
+        </processElements.LifeCycle>
+        <processElements.LifeCycle>
+          <name>lif4</name>
+          <description></description>
+          <subLifeCycleList>
+            <root reference="../../../.."/>
+            <lifeCycleList>
+              <processElements.LifeCycle reference="../../../../processElements.LifeCycle"/>
+            </lifeCycleList>
+            <numberOfLifeCycles>1</numberOfLifeCycles>
+          </subLifeCycleList>
+          <lifeCycleIterConditionList>
+            <root reference="../../../processElements.LifeCycle/lifeCycleIterConditionList/root"/>
+            <conditionList/>
+            <numberOfConditions>0</numberOfConditions>
+          </lifeCycleIterConditionList>
+          <lglLifeCycleComposedOfSteps>false</lglLifeCycleComposedOfSteps>
+          <nxtLifeCycleIterMode>1</nxtLifeCycleIterMode>
+          <lifecyclesteplist>
+            <root reference="../../../processElements.LifeCycle/lifecyclesteplist/root"/>
+            <lifeCycleStepList>
+              <processElements.LifeCycleStep reference="../../../../processElements.LifeCycle/lifecyclesteplist/root/lifeCycleStepList/processElements.LifeCycleStep"/>
+              <processElements.LifeCycleStep reference="../../../../processElements.LifeCycle/lifecyclesteplist/root/lifeCycleStepList/processElements.LifeCycleStep[2]"/>
+            </lifeCycleStepList>
+            <numberOfLifeCycleSteps>2</numberOfLifeCycleSteps>
+          </lifecyclesteplist>
+        </processElements.LifeCycle>
+        <processElements.LifeCycle>
+          <name>lif5</name>
+          <description></description>
+          <subLifeCycleList>
+            <root reference="../../../.."/>
+            <lifeCycleList>
+              <processElements.LifeCycle reference="../../../../processElements.LifeCycle"/>
+            </lifeCycleList>
+            <numberOfLifeCycles>1</numberOfLifeCycles>
+          </subLifeCycleList>
+          <lifeCycleIterConditionList>
+            <root reference="../../../processElements.LifeCycle/lifeCycleIterConditionList/root"/>
+            <conditionList>
+              <processElements.Condition reference="../../../../../../coniditons/conditionList/processElements.Condition"/>
+            </conditionList>
+            <numberOfConditions>1</numberOfConditions>
+          </lifeCycleIterConditionList>
+          <lglLifeCycleComposedOfSteps>true</lglLifeCycleComposedOfSteps>
+          <nxtLifeCycleIterMode>2</nxtLifeCycleIterMode>
+          <lifecyclesteplist>
+            <root reference="../../../processElements.LifeCycle/lifecyclesteplist/root"/>
+            <lifeCycleStepList>
+              <processElements.LifeCycleStep>
+                <lifeCycleStep>
+                  <name>step3</name>
+                  <description></description>
+                  <preConditionList>
+                    <root reference="../../../../../../../../../coniditons"/>
+                    <conditionList>
+                      <processElements.Condition reference="../../../../../../../../../../coniditons/conditionList/processElements.Condition"/>
+                    </conditionList>
+                    <numberOfConditions>1</numberOfConditions>
+                  </preConditionList>
+                  <postConditionList>
+                    <root reference="../../../../../../../../../coniditons"/>
+                    <conditionList>
+                      <processElements.Condition reference="../../../../../../../../../../coniditons/conditionList/processElements.Condition[2]"/>
+                    </conditionList>
+                    <numberOfConditions>1</numberOfConditions>
+                  </postConditionList>
+                  <taskList>
+                    <root reference="../../../../../../../processElements.LifeCycle/lifecyclesteplist/root/lifeCycleStepList/processElements.LifeCycleStep/lifeCycleStep/taskList/root"/>
+                    <taskList>
+                      <processElements.Task reference="../../../../../../../../processElements.LifeCycle/lifecyclesteplist/root/lifeCycleStepList/processElements.LifeCycleStep/lifeCycleStep/taskList/root/taskList/processElements.Task"/>
+                    </taskList>
+                    <numberOfTasks>1</numberOfTasks>
+                  </taskList>
+                </lifeCycleStep>
+                <default__delivarable>0</default__delivarable>
+                <artifactEffortList>
+                  <root reference="../../../../../../../../artifacts"/>
+                  <artifactList/>
+                  <numberOfArtifacts>0</numberOfArtifacts>
+                </artifactEffortList>
+                <planEffortList>
+                  <root reference="../../../../../../../../effortCategories/effortCategoryList/processElements.EffortCategory[2]/pList/root"/>
+                  <planList/>
+                  <numberOfPlans>0</numberOfPlans>
+                </planEffortList>
+                <interruptionEffortList>
+                  <root reference="../../../../../../../../effortCategories/effortCategoryList/processElements.EffortCategory[3]/iList/root"/>
+                  <interruptionList>
+                    <processElements.Interruption reference="../../../../../../../../../effortCategories/effortCategoryList/processElements.EffortCategory[3]/iList/root/interruptionList/processElements.Interruption"/>
+                    <processElements.Interruption reference="../../../../../../../../../effortCategories/effortCategoryList/processElements.EffortCategory[3]/iList/root/interruptionList/processElements.Interruption[2]"/>
+                  </interruptionList>
+                  <numberOfInterruptions>2</numberOfInterruptions>
+                </interruptionEffortList>
+                <defectEffortList>
+                  <root reference="../../../../../../../../defects"/>
+                  <defectList/>
+                  <numberOfDefects>0</numberOfDefects>
+                </defectEffortList>
+                <otherName></otherName>
+                <otherDesc></otherDesc>
+              </processElements.LifeCycleStep>
+            </lifeCycleStepList>
+            <numberOfLifeCycleSteps>1</numberOfLifeCycleSteps>
+          </lifecyclesteplist>
+        </processElements.LifeCycle>
+      </lifeCycleList>
+      <numberOfLifeCycles>5</numberOfLifeCycles>
+    </lifeCycles>
+    <plans reference="../effortCategories/effortCategoryList/processElements.EffortCategory[2]/pList/root"/>
+    <steps>
+      <stepList>
+        <processElements.Step reference="../../../lifeCycles/lifeCycleList/processElements.LifeCycle/lifecyclesteplist/root/lifeCycleStepList/processElements.LifeCycleStep/lifeCycleStep"/>
+        <processElements.Step reference="../../../lifeCycles/lifeCycleList/processElements.LifeCycle/lifecyclesteplist/root/lifeCycleStepList/processElements.LifeCycleStep[2]/lifeCycleStep"/>
+        <processElements.Step reference="../../../lifeCycles/lifeCycleList/processElements.LifeCycle[5]/lifecyclesteplist/lifeCycleStepList/processElements.LifeCycleStep/lifeCycleStep"/>
+        <processElements.Step>
+          <name>step4</name>
+          <description></description>
+          <preConditionList>
+            <root reference="../../../../../coniditons"/>
+            <conditionList>
+              <processElements.Condition reference="../../../../../../coniditons/conditionList/processElements.Condition"/>
+            </conditionList>
+            <numberOfConditions>1</numberOfConditions>
+          </preConditionList>
+          <postConditionList>
+            <root reference="../../../../../coniditons"/>
+            <conditionList>
+              <processElements.Condition reference="../../../../../../coniditons/conditionList/processElements.Condition[2]"/>
+            </conditionList>
+            <numberOfConditions>1</numberOfConditions>
+          </postConditionList>
+          <taskList>
+            <root reference="../../../../../lifeCycles/lifeCycleList/processElements.LifeCycle/lifecyclesteplist/root/lifeCycleStepList/processElements.LifeCycleStep/lifeCycleStep/taskList/root"/>
+            <taskList>
+              <processElements.Task reference="../../../../../../lifeCycles/lifeCycleList/processElements.LifeCycle/lifecyclesteplist/root/lifeCycleStepList/processElements.LifeCycleStep/lifeCycleStep/taskList/root/taskList/processElements.Task"/>
+            </taskList>
+            <numberOfTasks>1</numberOfTasks>
+          </taskList>
+        </processElements.Step>
+      </stepList>
+      <numberOfSteps>4</numberOfSteps>
+    </steps>
+    <tasks reference="../lifeCycles/lifeCycleList/processElements.LifeCycle/lifecyclesteplist/root/lifeCycleStepList/processElements.LifeCycleStep/lifeCycleStep/taskList/root"/>
+    <lifecyclesteps>
+      <lifeCycleStepList>
+        <processElements.LifeCycleStep>
+          <lifeCycleStep reference="../../../../lifeCycles/lifeCycleList/processElements.LifeCycle/lifecyclesteplist/root/lifeCycleStepList/processElements.LifeCycleStep/lifeCycleStep"/>
+          <default__delivarable>0</default__delivarable>
+          <artifactEffortList>
+            <artifactList/>
+            <numberOfArtifacts>0</numberOfArtifacts>
+          </artifactEffortList>
+          <planEffortList>
+            <planList/>
+            <numberOfPlans>0</numberOfPlans>
+          </planEffortList>
+          <interruptionEffortList>
+            <interruptionList/>
+            <numberOfInterruptions>0</numberOfInterruptions>
+          </interruptionEffortList>
+          <defectEffortList>
+            <defectList/>
+            <numberOfDefects>0</numberOfDefects>
+          </defectEffortList>
+          <otherName></otherName>
+          <otherDesc></otherDesc>
+        </processElements.LifeCycleStep>
+        <processElements.LifeCycleStep>
+          <lifeCycleStep reference="../../../../lifeCycles/lifeCycleList/processElements.LifeCycle/lifecyclesteplist/root/lifeCycleStepList/processElements.LifeCycleStep[2]/lifeCycleStep"/>
+          <default__delivarable>0</default__delivarable>
+          <artifactEffortList>
+            <artifactList/>
+            <numberOfArtifacts>0</numberOfArtifacts>
+          </artifactEffortList>
+          <planEffortList>
+            <planList/>
+            <numberOfPlans>0</numberOfPlans>
+          </planEffortList>
+          <interruptionEffortList>
+            <interruptionList/>
+            <numberOfInterruptions>0</numberOfInterruptions>
+          </interruptionEffortList>
+          <defectEffortList>
+            <defectList/>
+            <numberOfDefects>0</numberOfDefects>
+          </defectEffortList>
+          <otherName></otherName>
+          <otherDesc></otherDesc>
+        </processElements.LifeCycleStep>
+        <processElements.LifeCycleStep>
+          <lifeCycleStep reference="../../../../lifeCycles/lifeCycleList/processElements.LifeCycle[5]/lifecyclesteplist/lifeCycleStepList/processElements.LifeCycleStep/lifeCycleStep"/>
+          <default__delivarable>0</default__delivarable>
+          <artifactEffortList>
+            <artifactList/>
+            <numberOfArtifacts>0</numberOfArtifacts>
+          </artifactEffortList>
+          <planEffortList>
+            <planList/>
+            <numberOfPlans>0</numberOfPlans>
+          </planEffortList>
+          <interruptionEffortList>
+            <interruptionList/>
+            <numberOfInterruptions>0</numberOfInterruptions>
+          </interruptionEffortList>
+          <defectEffortList>
+            <defectList/>
+            <numberOfDefects>0</numberOfDefects>
+          </defectEffortList>
+          <otherName></otherName>
+          <otherDesc></otherDesc>
+        </processElements.LifeCycleStep>
+        <processElements.LifeCycleStep>
+          <lifeCycleStep reference="../../../../steps/stepList/processElements.Step[4]"/>
+          <default__delivarable>0</default__delivarable>
+          <artifactEffortList>
+            <artifactList/>
+            <numberOfArtifacts>0</numberOfArtifacts>
+          </artifactEffortList>
+          <planEffortList>
+            <planList/>
+            <numberOfPlans>0</numberOfPlans>
+          </planEffortList>
+          <interruptionEffortList>
+            <interruptionList/>
+            <numberOfInterruptions>0</numberOfInterruptions>
+          </interruptionEffortList>
+          <defectEffortList>
+            <defectList/>
+            <numberOfDefects>0</numberOfDefects>
+          </defectEffortList>
+          <otherName></otherName>
+          <otherDesc></otherDesc>
+        </processElements.LifeCycleStep>
+      </lifeCycleStepList>
+      <numberOfLifeCycleSteps>4</numberOfLifeCycleSteps>
+    </lifecyclesteps>
+  </processElements.Definitions>
+</object-stream>

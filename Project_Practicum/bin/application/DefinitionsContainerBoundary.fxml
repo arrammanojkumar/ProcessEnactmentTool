@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="682.9609375" prefWidth="952.0000999999975" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.Controller_class">
+  <!-- TODO Add Nodes -->
+  <children>
+    <TabPane fx:id="Tabpane" layoutX="14.0" layoutY="11.0" onMouseClicked="#performTabChange" prefHeight="559.0" prefWidth="958.0" tabClosingPolicy="UNAVAILABLE">
+      <tabs>
+        <Tab text="Life Cycles">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="571.0000999999975" prefWidth="958.0">
+              <children>
+                <Label layoutX="21.0" layoutY="7.0" prefHeight="36.0" prefWidth="122.0" text="Life Cycles">
+                  <font>
+                    <Font name="Verdana Bold" size="18.0" fx:id="x1" />
+                  </font>
+                </Label>
+                <Label layoutX="27.0" layoutY="214.0" text="Life Cycle Name" />
+                <TextField fx:id="fldLCName" layoutX="18.0" layoutY="235.0" onKeyReleased="#checkLifeCycleName" prefHeight="28.0" prefWidth="272.0" />
+                <Label layoutX="22.0" layoutY="276.0" text="Life Cycle Description" />
+                <ListView fx:id="jlstLifeCycles" layoutX="20.0" layoutY="47.0"  onKeyReleased="#selectListLifeCycleListItemSelected"  onMouseClicked="#selectListLifeCycleListItemSelected" prefHeight="153.0" prefWidth="267.0" />
+                <TextArea fx:id="fldLCDesc" layoutX="22.0" layoutY="301.0" onKeyReleased="#checkLifeCycleDesc" prefHeight="127.0" prefWidth="272.0" wrapText="true" />
+                <Button fx:id="btnLCNew" disable="true" focusTraversable="true" layoutX="22.0" layoutY="443.0" mnemonicParsing="false" onAction="#performLCNew" prefHeight="28.0" prefWidth="273.0" text="Insert" visible="true" />
+                <Button fx:id="btnLCDelete" disable="true" layoutX="209.0" layoutY="488.0" mnemonicParsing="false" onAction="#performLCDelete" prefHeight="28.0" prefWidth="90.0" text="Delete" visible="true" />
+                <Button fx:id="btnLCMvUp" disable="true" layoutX="21.0" layoutY="487.0" mnemonicParsing="false" onAction="#performLCMvUp" prefHeight="28.0" prefWidth="90.0" text="Move Up" />
+                <Button fx:id="btnLCMvDn" disable="true" layoutX="116.0" layoutY="488.0" mnemonicParsing="false" onAction="#performLCMvDn" prefHeight="28.0" prefWidth="90.0" text="Move Dn" visible="true" />
+                <Button fx:id="btnLCSave" layoutX="367.0" layoutY="25.0" mnemonicParsing="false" onAction="#performLCSave" prefHeight="28.0" prefWidth="176.0" text="Save" />
+                <Button fx:id="btnLCClear" layoutX="672.0" layoutY="25.0" mnemonicParsing="false" onAction="#performLCClear" prefHeight="28.0" prefWidth="154.0" text="Clear this Form " />
+                <Button fx:id="btnLCNewBelow" layoutX="162.0" layoutY="443.0" mnemonicParsing="false" onAction="#performLCNewBelow" prefHeight="28.0" prefWidth="135.0" text="InsertDn" visible="false" />
+                <Button fx:id="btnLCNewAbove" layoutX="23.0" layoutY="443.0" mnemonicParsing="false" onAction="#performLCNewAbove" prefHeight="28.0" prefWidth="135.0" text="InsertUp" visible="false" />
+                <Label fx:id="labelECDefinitions" layoutX="365.0" layoutY="62.0" prefWidth="176.0" text="Effort Category Definitions" visible="false" />
+                <Label fx:id="lableEffortCategory" layoutX="368.0" layoutY="90.0" minHeight="10.000091552734375" prefHeight="17.0" prefWidth="122.0" text="Select ECDefinitions " visible="false" />
+                <ComboBox fx:id="jcbLCEC" layoutX="366.0" layoutY="112.0" onAction="#selectECListItemSelected" prefHeight="21.0" prefWidth="200.0" visible="false">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Artifacts" />
+                      <String fx:value="Plans" />
+                      <String fx:value="Interruptions" />
+                      <String fx:value="Defects" />
+                      <String fx:value="Others" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <Label fx:id="labelSelect" layoutX="366.0" layoutY="140.0" prefWidth="135.0" text="Effort Category" visible="false" />
+                <ComboBox fx:id="jcbLCECSelect" layoutX="366.0" layoutY="161.0" onAction="#one_EC_selected" prefHeight="21.0" prefWidth="200.0" visible="false">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Item 1" />
+                      <String fx:value="Item 2" />
+                      <String fx:value="Item 3" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <ListView fx:id="jlstLifeCycleSteps" layoutX="645.0" layoutY="134.0"   onKeyReleased="#selectListLifeCycleStepItemSelected"  onMouseClicked="#selectListLifeCycleStepItemSelected" prefHeight="153.0" prefWidth="217.0" />
+                <Label layoutX="314.0" layoutY="318.0" prefWidth="187.0" text="This Life Cycle iteration mode" />
+                <ComboBox fx:id="jcbLifeCycleIterationOption" layoutX="313.0" layoutY="346.0" onAction="#jcbLifeCycleIteration" prefHeight="23.0" prefWidth="294.0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Does not iterate" />
+                      <String fx:value="Iterates a fixed number of times" />
+                      <String fx:value="Iterates until conditions are satisfied" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <Label fx:id="msgLifeCycleIterationConditions" layoutX="313.0" layoutY="384.0" prefWidth="143.0" text="Iteration Conditions" visible="false" />
+                <Label fx:id="msgLifeCycleIterationCondition" layoutX="314.0" layoutY="478.0" prefWidth="187.0" text="Select a condition to be used" visible="false" />
+                <ComboBox fx:id="jcbLifeCycleIterationCondition" layoutX="317.0" layoutY="499.0" onAction="#comboBoxItersListItemSelected" prefHeight="21.0" prefWidth="296.0" visible="false">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Item 1" />
+                      <String fx:value="Item 2" />
+                      <String fx:value="Item 3" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <ComboBox fx:id="jcbLifeCycleComposedOfOption" layoutX="643.0" layoutY="82.0" onAction="#LifeCycleComposedOfOption" prefHeight="21.0" prefWidth="200.0" promptText="Life Cycle Steps">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Life Cycle Steps" />
+                      <String fx:value="Subordinate Life Cycles" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <Label layoutX="646.0" layoutY="59.0" prefWidth="173.0" text="This Life cycle is composed of" />
+                <Label fx:id="msgLifeCycleSteps" layoutX="646.0" layoutY="113.0" prefWidth="200.0" text="Select one of these Lifecycle Steps" />
+                <Label id="msgstepselect" fx:id="msgLCSSelect" layoutX="632.0" layoutY="296.0" prefWidth="231.0001220703125" text="Select one of the following Lifecycle steps" />
+                <ComboBox fx:id="jcbLifeCycleSteps" editable="false" layoutX="632.0" layoutY="319.0" prefHeight="21.0" prefWidth="272.0" promptText="" visibleRowCount="0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Item 1" />
+                      <String fx:value="Item 2" />
+                      <String fx:value="Item 3" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <Button fx:id="btnLCSDelete" disable="true" layoutX="814.0" layoutY="392.0" mnemonicParsing="false" onAction="#performLCSDelete" prefHeight="28.0" prefWidth="90.0" text="Delete" />
+                <Button fx:id="btnLCSMvUp" disable="true" layoutX="632.0" layoutY="392.0" mnemonicParsing="false" onAction="#performLCSMvUp" prefHeight="28.0" prefWidth="90.0" text="Move Up" visible="true" />
+                <Button fx:id="btnLCSMvDn" disable="true" layoutX="723.0" layoutY="392.0" mnemonicParsing="false" onAction="#performLCSMvDn" prefHeight="28.0" prefWidth="90.0" text="Move Dn" />
+                <Button fx:id="btnLCSNew" disable="true" layoutX="632.0" layoutY="351.0" mnemonicParsing="false" onAction="#performLCSNew" prefHeight="28.0" prefWidth="272.0" text="Insert" visible="true" />
+                <Button fx:id="btnLCItersNew" disable="true" layoutX="665.0" layoutY="430.0" mnemonicParsing="false" onAction="#performLCItersNew" prefHeight="28.0" prefWidth="160.0" text="Insert" visible="false" />
+                <Button fx:id="btnLCItersDelete" disable="true" layoutX="664.0" layoutY="498.0" mnemonicParsing="false" onAction="#performLCItersDelete" prefHeight="28.0" prefWidth="160.0" text="Delete" visible="false" />
+                <Button fx:id="btnLCItersMvUp" disable="true" layoutX="664.0" layoutY="463.0" mnemonicParsing="false" onAction="#performLCItersMvUp" prefHeight="28.0" prefWidth="79.0" text="Move Up" visible="false" />
+                <Button fx:id="btnLCItersMvDn" disable="true" layoutX="745.0" layoutY="463.0" mnemonicParsing="false" onAction="#performLCItersMvDn" prefHeight="28.0" prefWidth="79.0" text="Move Dn" visible="false" />
+                <Button fx:id="btnLCSAbove" layoutX="632.0" layoutY="351.0" mnemonicParsing="false" onAction="#performLCSAbove" prefHeight="28.0" prefWidth="135.0" text="Insert Up" visible="false" />
+                <Button fx:id="btnLCSBelow" layoutX="769.0" layoutY="351.0" mnemonicParsing="false" onAction="#performLCSBelow" prefHeight="28.0" prefWidth="135.0" text="Insert Dn" visible="false" />
+                <ListView fx:id="jlstLifeCycleIterationCondition" layoutX="314.0" layoutY="406.0"  onKeyReleased="#selectListLifeCycleItersListItemSelected" onMouseClicked="#selectListLifeCycleItersListItemSelected" prefHeight="66.0" prefWidth="313.0" visible="false" />
+                <Button fx:id="btnLCItersAbove" layoutX="664.0" layoutY="429.0" mnemonicParsing="false" onAction="#performLCItersAbove" prefHeight="28.0" prefWidth="79.0" text="Insert Up" visible="false" />
+                <Button fx:id="btnLCItersBelow" layoutX="745.0" layoutY="429.0" mnemonicParsing="false" onAction="#performLCItersBelow" prefHeight="28.0" prefWidth="79.0" text="Insert Dn" visible="false" />
+                <Button fx:id="btnSubLCNew" layoutX="632.0" layoutY="351.0" mnemonicParsing="false" onAction="#performSubLCNew" prefHeight="28.0" prefWidth="272.0" text="Insert" visible="false" />
+                <Button fx:id="btnSubLCAbove" layoutX="632.0" layoutY="351.0" mnemonicParsing="false" onAction="#performSubLCAbove" prefHeight="28.0" prefWidth="135.0" text="Insert Up" visible="false" />
+                <Button fx:id="btnSubLCBelow" layoutX="769.0" layoutY="351.0" mnemonicParsing="false" onAction="#performSubLCBelow" prefHeight="28.0" prefWidth="135.0" text="Insert Dn" visible="false" />
+                <Button fx:id="btnSubLCMvUp" layoutX="632.0" layoutY="392.0" mnemonicParsing="false" onAction="#performSubLCMvUp" prefHeight="28.0" prefWidth="90.0" text="Move Up" visible="false" />
+                <Button fx:id="btnSubLCMvDn" layoutX="723.0" layoutY="392.0" mnemonicParsing="false" onAction="#performSubLCMvDn" prefHeight="28.0" prefWidth="90.0" text="Move Dn" visible="false" />
+                <Button fx:id="btnSubLCDelete" layoutX="814.0" layoutY="392.0" mnemonicParsing="false" onAction="#performSubLCDelete" prefHeight="28.0" prefWidth="90.0" text="Delete" visible="false" />
+                <Label fx:id="msgSubLifeCycle" layoutX="666.0" layoutY="110.0" prefWidth="173.0" text="Subordinate Life Cycles" visible="false" />
+                <ComboBox fx:id="jcbSubLifeCycle" layoutX="633.0" layoutY="318.0" prefHeight="21.0" prefWidth="272.0" visible="false">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Item 1" />
+                      <String fx:value="Item 2" />
+                      <String fx:value="Item 3" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <ListView fx:id="jlstSubLifeCycle" layoutX="642.0" layoutY="131.0" onKeyReleased="#SubLifeCycleAction" onMouseClicked="#SubLifeCycleAction" prefHeight="153.0" prefWidth="217.0" visible="false" />
+                <Label fx:id="msgSubLifeCycleSelect" layoutX="640.0" layoutY="295.0" prefWidth="217.0" text="Select one of these Subordinate Life Cycles:" visible="false" />
+                <Button fx:id="btnLCECUpdate" layoutX="368.0" layoutY="265.0" mnemonicParsing="false" onAction="#checkLCECUpdate" prefHeight="23.0" prefWidth="200.0" text="Update" visible="false" />
+                <ComboBox id="jcb" fx:id="jcbLCECDefaultSelect" layoutX="366.0" layoutY="215.0" onAction="#SelectDefaultEffortCategory" prefHeight="21.0" prefWidth="200.0001220703125" visible="false">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Item 1" />
+                      <String fx:value="Item 2" />
+                      <String fx:value="Item 3" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <Label fx:id="labelSelectDefault" layoutX="368.0" layoutY="193.0" prefWidth="125.0" text="Default Deliverable" visible="false" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Steps">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="545.0" prefWidth="958.0">
+              <children>
+                <Label font="$x1" layoutX="19.0" layoutY="8.0" prefHeight="36.0" prefWidth="291.0" text="Life Cycle steps" />
+                <Label layoutX="20.0" layoutY="208.0" text="Life Cycle step Name" />
+                <TextField fx:id="fldStepName" layoutX="18.0" layoutY="230.0" onKeyReleased="#rtnCheckFldStepsNewName" prefHeight="28.0" prefWidth="272.0" />
+                <Label layoutX="20.0" layoutY="271.0" text="Life Cycle Step Description" />
+                <Button fx:id="btnStepsNew" disable="true" focusTraversable="false" layoutX="25.0" layoutY="440.0" mnemonicParsing="false" onAction="#performStepNew" prefHeight="28.0" prefWidth="272.0" text="Insert" visible="true" />
+                <Button fx:id="btnStepsDelete" disable="true" layoutX="211.0" layoutY="484.0" mnemonicParsing="false" onAction="#performStepDelete" prefHeight="28.0" prefWidth="89.0" text="Delete" visible="true" />
+                <Button fx:id="btnStepsMvUp" disable="true" layoutX="24.0" layoutY="484.0" mnemonicParsing="false" onAction="#performStepMvUp" prefHeight="28.0" prefWidth="89.0" text="Move Up" visible="true" />
+                <Button fx:id="btnStepsMvDn" disable="true" layoutX="117.0" layoutY="484.0" mnemonicParsing="false" onAction="#performStepMvDn" prefHeight="28.0" prefWidth="89.0" text="Move Down" visible="true" />
+                <Button fx:id="btnStepsSave" disable="true" layoutX="367.0" layoutY="25.0" mnemonicParsing="false" onAction="#performStepSave" prefHeight="28.0" prefWidth="176.0" text="Save" />
+                <Button fx:id="btnStepsClear" layoutX="672.0" layoutY="25.0" mnemonicParsing="false" onAction="#performStepClear" prefHeight="28.0" prefWidth="154.0" text="Clear this Form " />
+                <ListView fx:id="jlstSteps" layoutX="22.0" layoutY="46.0" onKeyReleased="#selectListStepsListItemSelected"  onMouseClicked="#selectListStepsListItemSelected" prefHeight="146.0" prefWidth="264.0" />
+                <TextArea fx:id="fldStepDesc" layoutX="21.0" layoutY="296.0" onKeyReleased="#rtnCheckFldStepsNewDesc" prefHeight="129.0" prefWidth="272.0" wrapText="true" />
+                <Button fx:id="btnStepsNewAbove" disable="false" layoutX="25.0" layoutY="439.0" mnemonicParsing="false" onAction="#performStepNewAbove" prefHeight="28.0" prefWidth="135.0" text="Insert up" visible="false" />
+                <Button fx:id="btnStepsNewBelow" disable="false" layoutX="161.0" layoutY="439.0" mnemonicParsing="false" onAction="#performStepNewBelow" prefHeight="28.0" prefWidth="135.0" text="Insert Dn" visible="false" />
+                <Label layoutX="382.0" layoutY="62.0" prefWidth="143.0" text="Preconditions:" />
+                <Label layoutX="377.0" layoutY="158.0" prefWidth="187.0" text="Select a pre condition to be used" />
+                <ListView fx:id="jlstPreCondition" layoutX="383.0" layoutY="87.0" onKeyReleased="#jltPreConditionListItemSelected" onMouseClicked="#jltPreConditionListItemSelected" prefHeight="61.0" prefWidth="363.0" />
+                <ComboBox fx:id="jcbPreCondition" layoutX="377.0" layoutY="186.0" onMouseClicked="#comboBoxPreConditionListItemSelected" prefHeight="21.0" prefWidth="368.0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Item 1" />
+                      <String fx:value="Item 2" />
+                      <String fx:value="Item 3" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <Button fx:id="btnPreConditionNew" disable="true" layoutX="769.0" layoutY="91.0" mnemonicParsing="false" onAction="#performPreConditionNew" prefHeight="28.0" prefWidth="159.0" text="Insert" visible="true" />
+                <Button fx:id="btnPreConditionDelete" disable="true" layoutX="767.0" layoutY="174.0" mnemonicParsing="false" onAction="#performPreConditionDelete" prefHeight="28.0" prefWidth="159.0" text="Delete" />
+                <Button fx:id="btnPreConditionMvUp" disable="true" layoutX="769.0" layoutY="130.0" mnemonicParsing="false" onAction="#performPreConditionMvUp" prefHeight="28.0" prefWidth="79.0" text="Move Up" />
+                <Button fx:id="btnPreConditionMvDn" disable="true" layoutX="849.0" layoutY="131.0" mnemonicParsing="false" onAction="#performPreConditionMvDn" prefHeight="28.0" prefWidth="79.0" text="Move Dn" />
+                <Button fx:id="btnPreConditionAbove" layoutX="767.0" layoutY="90.0" mnemonicParsing="false" onAction="#performPreConditionAbove" prefHeight="28.0" prefWidth="79.0" text="Insert up" visible="false" />
+                <Button fx:id="btnPreConditionBelow" layoutX="849.0" layoutY="91.0" mnemonicParsing="false" onAction="#performPreConditionBelow" prefHeight="28.0" prefWidth="79.0" text="Insert Dn" visible="false" />
+                <Label layoutX="378.0" layoutY="227.0" prefWidth="143.0" text="Postconditions:" />
+                <Label layoutX="378.0" layoutY="315.0" prefWidth="187.0" text="Select a Postcondition to be used:" />
+                <ListView fx:id="jlstPostCondition" layoutX="382.0" layoutY="248.0" onKeyReleased="#selectListPostConditionListItemSelected" onMouseClicked="#selectListPostConditionListItemSelected" prefHeight="61.0" prefWidth="363.0" />
+                <ComboBox fx:id="jcbPostCondition" layoutX="377.0" layoutY="337.0" onMouseClicked="#comboBoxPostConditionListItemSelected" prefHeight="21.0" prefWidth="368.0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Item 1" />
+                      <String fx:value="Item 2" />
+                      <String fx:value="Item 3" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <Button fx:id="btnPostConditionNew" disable="true" layoutX="769.0" layoutY="249.0" mnemonicParsing="false" onAction="#performPostConditionNew" prefHeight="28.0" prefWidth="159.0" text="Insert" visible="true" />
+                <Button fx:id="btnPostConditionDelete" disable="true" layoutX="767.0" layoutY="332.0" mnemonicParsing="false" onAction="#performPostConditionDelete" prefHeight="28.0" prefWidth="159.0" text="Delete" />
+                <Button fx:id="btnPostConditionMvUp" disable="true" layoutX="767.0" layoutY="290.0" mnemonicParsing="false" onAction="#performPostConditionMvUp" prefHeight="28.0" prefWidth="79.0" text="Move Up" />
+                <Button fx:id="btnPostConditionMvDn" disable="true" layoutX="847.0" layoutY="290.0" mnemonicParsing="false" onAction="#performPostConditionMvDn" prefHeight="28.0" prefWidth="81.0" text="Move Dn" />
+                <Button fx:id="btnPostConditionAbove" layoutX="767.0" layoutY="249.0" mnemonicParsing="false" onAction="#performPostConditionAbove" prefHeight="28.0" prefWidth="79.0" text="Insert up" visible="false" />
+                <Button fx:id="btnPostConditionBelow" layoutX="849.0" layoutY="248.0" mnemonicParsing="false" onAction="#performPostConditionBelow" prefHeight="28.0" prefWidth="79.0" text="Insert Dn" visible="false" />
+                <Label layoutX="383.0" layoutY="381.0" prefWidth="143.0" text="Tasks" />
+                <Label layoutX="380.0" layoutY="474.0" prefWidth="187.0" text="Select a task to be used" />
+                <ComboBox fx:id="jcbStepTask" layoutX="379.0" layoutY="498.0" onMouseClicked="#comboBoxStepTaskListItemSelected" prefHeight="21.0" prefWidth="368.0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Item 1" />
+                      <String fx:value="Item 2" />
+                      <String fx:value="Item 3" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <Button fx:id="btnStepTaskNew" disable="true" layoutX="771.0" layoutY="413.0" mnemonicParsing="false" onAction="#performStepTaskNew" prefHeight="28.0" prefWidth="159.0" text="Insert" visible="true" />
+                <Button fx:id="btnStepTaskDelete" disable="true" layoutX="769.0" layoutY="493.0" mnemonicParsing="false" onAction="#performStepTaskDelete" prefHeight="28.0" prefWidth="159.0" text="Delete" />
+                <Button fx:id="btnStepTaskMvUp" disable="true" layoutX="771.0" layoutY="453.0" mnemonicParsing="false" onAction="#performStepTaskMvUp" prefHeight="28.0" prefWidth="79.0" text="Move Up" />
+                <Button fx:id="btnStepTaskMvDn" disable="true" layoutX="850.0" layoutY="453.0" mnemonicParsing="false" onAction="#performStepTaskMvDn" prefHeight="28.0" prefWidth="79.0" text="Move Dn" />
+                <Button fx:id="btnStepTaskAbove" layoutX="772.0" layoutY="412.0" mnemonicParsing="false" onAction="#performStepTaskAbove" prefHeight="28.0" prefWidth="79.0" text="Insert up" visible="false" />
+                <Button fx:id="btnStepTaskBelow" layoutX="852.0" layoutY="412.0" mnemonicParsing="false" onAction="#performStepTaskBelow" prefHeight="28.0" prefWidth="79.0" text="Insert Dn" visible="false" />
+                <ListView fx:id="jlstStepTask" layoutX="382.0" layoutY="404.0" onKeyReleased="#selectListStepTaskListItemSelected" onMouseClicked="#selectListStepTaskListItemSelected" prefHeight="61.0" prefWidth="363.0" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Tasks">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Label font="$x1" layoutX="24.0" layoutY="9.0" prefHeight="36.0" prefWidth="291.0" text="Tasks" />
+                <Label layoutX="29.0" layoutY="215.0" text="Task name" />
+                <TextField fx:id="fldTaskName" layoutX="29.0" layoutY="234.0" onKeyReleased="#rtnCheckFldTasksNewName" prefHeight="28.0" prefWidth="267.0" />
+                <TextArea fx:id="fldTaskDesc" layoutX="27.0" layoutY="291.0" onKeyReleased="#rtnCheckFldTasksNewDesc" prefHeight="140.0" prefWidth="267.0" wrapText="true" />
+                <Label layoutX="25.0" layoutY="270.0" text="Task Description" />
+                <Button fx:id="btnTasksNew" disable="true" layoutX="27.0" layoutY="444.0" mnemonicParsing="false" onAction="#performTaskNew" prefHeight="28.0" prefWidth="272.0" text="Insert" />
+                <Button fx:id="btnTasksNewAbove" disable="false" focusTraversable="false" layoutX="27.0" layoutY="445.0" mnemonicParsing="false" onAction="#performTaskNewAbove" prefHeight="28.0" prefWidth="135.0" text="Insert Up" visible="false" />
+                <Button fx:id="btnTasksNewBelow" disable="false" layoutX="164.0" layoutY="445.0" mnemonicParsing="false" onAction="#performTaskNewBelow" prefHeight="28.0" prefWidth="135.0" text="Insert Dn" visible="false" />
+                <Button fx:id="btnTasksDelete" disable="true" layoutX="209.0" layoutY="490.0" mnemonicParsing="false" onAction="#performTaskDelete" prefHeight="28.0" prefWidth="90.0" text="Delete" visible="true" />
+                <Button fx:id="btnTasksMvUp" disable="true" layoutX="27.0" layoutY="490.0" mnemonicParsing="false" onAction="#performTaskMvUp" prefHeight="28.0" prefWidth="90.0" text="Move Up" />
+                <Button fx:id="btnTasksMvDn" disable="true" layoutX="118.0" layoutY="490.0" mnemonicParsing="false" onAction="#performTaskMvDn" prefHeight="28.0" prefWidth="90.0" text="Move Dn" />
+                <Button fx:id="btnArtUsedNew" disable="true" layoutX="343.0" layoutY="444.0" mnemonicParsing="false" onAction="#performArtUsedNew" prefHeight="28.0" prefWidth="272.0" text="Insert" />
+                <Button fx:id="btnArtUsedAbove" disable="false" layoutX="344.0" layoutY="444.0" mnemonicParsing="false" onAction="#performArtUsedAbove" prefHeight="28.0" prefWidth="135.0" text="Insert Up" visible="false" />
+                <Button fx:id="btnArtUsedDelete" disable="true" layoutX="525.0" layoutY="490.0" mnemonicParsing="false" onAction="#performArtUsedDelete" prefHeight="28.0" prefWidth="90.0" text="Delete" />
+                <Button fx:id="btnArtUsedMvUp" disable="true" layoutX="343.0" layoutY="490.0" mnemonicParsing="false" onAction="#performArtUsedMvUp" prefHeight="28.0" prefWidth="90.0" text="Move Up" />
+                <Button fx:id="btnArtUsedMvDn" disable="true" layoutX="434.0" layoutY="490.0" mnemonicParsing="false" onAction="#performArtUsedMvDn" prefHeight="28.0" prefWidth="90.0" text="Move Dn" />
+                <Button fx:id="btnArtProducedNew" disable="true" layoutX="662.0" layoutY="444.0" mnemonicParsing="false" onAction="#performArtProducedNew" prefHeight="28.0" prefWidth="272.0" text="Insert" />
+                <Button fx:id="btnArtProducedAbove" disable="false" layoutX="662.0" layoutY="444.0" mnemonicParsing="false" onAction="#performArtProducedAbove" prefHeight="28.0" prefWidth="135.0" text="Insert Up" visible="false" />
+                <Button fx:id="btnArtProducedBelow" disable="false" layoutX="798.0" layoutY="444.0" mnemonicParsing="false" onAction="#performArtProducedBelow" prefHeight="28.0" prefWidth="135.0" text="Insert Dn" visible="false" />
+                <Button fx:id="btnArtProducedDelete" disable="true" layoutX="844.0" layoutY="490.0" mnemonicParsing="false" onAction="#performArtProducedDelete" prefHeight="28.0" prefWidth="90.0" text="Delete" />
+                <Button fx:id="btnArtProducedMvUp" disable="true" layoutX="662.0" layoutY="490.0" mnemonicParsing="false" onAction="#performArtProducedMvUp" prefHeight="28.0" prefWidth="90.0" text="Move Up" />
+                <Button fx:id="btnArtProducedMvDn" disable="true" layoutX="753.0" layoutY="491.0" mnemonicParsing="false" onAction="#performArtProducedMvDn" prefHeight="28.0" prefWidth="90.0" text="Move Dn" />
+                <Button fx:id="btnTasksSave" disable="true" layoutX="367.0" layoutY="25.0" mnemonicParsing="false" onAction="#performTaskSave" prefHeight="28.0" prefWidth="176.0" text="Save" />
+                <Button fx:id="btnTasksClear" layoutX="672.0" layoutY="25.0" mnemonicParsing="false" onAction="#performTaskClear" prefHeight="28.0" prefWidth="154.0" text="Clear this Form " />
+                <Label layoutX="341.0" layoutY="70.0" text="Artifacts Used" />
+                <Label layoutX="341.0" layoutY="377.0" text="Select an Artifact to be used" />
+                <ComboBox fx:id="jcbArtUsed" layoutX="341.0" layoutY="401.0" onMouseClicked="#comboBoxArtUsedListItemSelected" prefHeight="21.0" prefWidth="267.0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Item 1" />
+                      <String fx:value="Item 2" />
+                      <String fx:value="Item 3" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <Label layoutX="658.0" layoutY="72.0" text="Artifacts Produced" />
+                <Label layoutX="658.0" layoutY="378.0" text="Select an Artifact to be Produced" />
+                <ComboBox fx:id="jcbArtProduced" layoutX="658.0" layoutY="402.0" onMouseClicked="#comboBoxArtProducedListItemSelected" prefHeight="21.0" prefWidth="272.0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Item 1" />
+                      <String fx:value="Item 2" />
+                      <String fx:value="Item 3" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <ListView fx:id="jlstTasks" layoutX="30.0" layoutY="44.0" onKeyReleased="#selectListTasksListItemSelected" onMouseClicked="#selectListTasksListItemSelected" prefHeight="160.0" prefWidth="253.0" />
+                <ListView fx:id="jlstArtUsed" layoutX="341.0" layoutY="100.0" onKeyReleased="#jltArtUsedListItemSelected"  onMouseClicked="#jltArtUsedListItemSelected" prefHeight="266.0" prefWidth="253.0" />
+                <ListView fx:id="jlstArtProduced" layoutX="657.0" layoutY="100.0" onKeyReleased="#selectListArtProducedListItemSelected" onMouseClicked="#selectListArtProducedListItemSelected" prefHeight="266.0" prefWidth="267.0" />
+                <Button fx:id="btnArtUsedBelow" disable="false" layoutX="480.0" layoutY="443.0" mnemonicParsing="false" onAction="#performArtUsedBelow" prefHeight="28.0" prefWidth="135.0" text="Insert Dn" visible="false" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <!-- **************************************************Conditions Pane*********************************************** -->
+        <Tab text="Conditions">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Label font="$x1" layoutX="26.0" layoutY="31.0" prefHeight="36.0" prefWidth="291.0" text="Conditions" />
+                <Button fx:id="btnConditionsNew" disable="true" layoutX="40.0" layoutY="442.0" mnemonicParsing="false" onAction="#performConditionsNew" prefHeight="28.0" prefWidth="272.0" text="Insert" />
+                <Button fx:id="btnConditionsDelete" disable="true" layoutX="222.0" layoutY="488.0" mnemonicParsing="false" onAction="#performConditionsDelete" prefHeight="28.0" prefWidth="90.0" text="Delete" />
+                <Button fx:id="btnConditionsMvUp" disable="true" layoutX="40.0" layoutY="488.0" mnemonicParsing="false" onAction="#performConditionMvUp" prefHeight="28.0" prefWidth="90.0" text="Move Up" />
+                <Button fx:id="btnConditionsMvDn" disable="true" layoutX="131.0" layoutY="488.0" mnemonicParsing="false" onAction="#performConditionMvDn" prefHeight="28.0" prefWidth="90.0" text="Move Dn" />
+                <Button fx:id="btnConditionsSave" disable="true" layoutX="367.0" layoutY="25.0" mnemonicParsing="false" onAction="#performConditionsSave" prefHeight="28.0" prefWidth="176.0" text="Save" />
+                <Button fx:id="btnConditionsClear" layoutX="672.0" layoutY="25.0" mnemonicParsing="false" onAction="#performConditionsClear" prefHeight="28.0" prefWidth="154.0" text="Clear this Form " />
+                <Label fx:id="msgConditionName" layoutX="366.0" layoutY="78.0" text="Condition name" />
+                <TextField fx:id="fldConditionName" layoutX="366.0" layoutY="103.0" onKeyReleased="#rtnCheckFldConditionsNewName" prefWidth="459.0" />
+                <Label fx:id="msgConditionDesc" layoutX="366.0" layoutY="154.0" text="Condition Description" />
+                <ListView fx:id="jlstConditions" layoutX="55.0" layoutY="86.0" onKeyReleased="#Conditionselection" onMouseClicked="#Conditionselection" prefHeight="341.0" prefWidth="230.0" />
+                <TextArea fx:id="fldConditionDesc" layoutX="368.0" layoutY="188.0" onKeyReleased="#rtnCheckFldConditionsNewDesc" prefHeight="239.0" prefWidth="457.0" wrapText="true" />
+                <Button fx:id="btnConditionsNewAbove" disable="false" layoutX="40.0" layoutY="442.0" mnemonicParsing="false" onAction="#performConditionsNewAbove" prefHeight="28.0" prefWidth="135.0" text="Insert up" visible="false" />
+                <Button fx:id="btnConditionsNewBelow" disable="false" layoutX="176.0" layoutY="441.0" mnemonicParsing="false" onAction="#performConditionsNewBelow" prefHeight="28.0" prefWidth="135.0" text="Insert Dn" visible="false" />
+                <Label layoutX="461.0" layoutY="472.0" text="Condition State" />
+                <ComboBox fx:id="jcbConditionState" layoutX="576.0" layoutY="468.0" onAction="#ConditionAction" prefHeight="21.0" prefWidth="85.0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="true" />
+                      <String fx:value="false" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Effort categories">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Label fx:id="msgEffortCategories" font="$x1" layoutX="29.0" layoutY="23.0" prefHeight="36.0" prefWidth="291.0" text="Effort Categories" />
+                <Button fx:id="btnEffortCategoriesNew" disable="true" layoutX="29.0" layoutY="449.0" mnemonicParsing="false" onAction="#performEffortCategoriesNew" prefHeight="28.0" prefWidth="272.0" text="Insert" visible="true" />
+                <Button fx:id="btnEffortCategoriesDelete" disable="true" layoutX="213.0" layoutY="494.0" mnemonicParsing="false" onAction="#performEffortCategoriesDelete" prefHeight="28.0" prefWidth="90.0" text="Delete" visible="true" />
+                <Button fx:id="btnEffortCategoriesMvUp" disable="true" layoutX="29.0" layoutY="494.0" mnemonicParsing="false" onAction="#performEffortCategoryMvUp" prefHeight="28.0" prefWidth="90.0" text="Move Up" visible="true" />
+                <Button fx:id="btnEffortCategoriesMvDn" disable="true" layoutX="121.0" layoutY="494.0" mnemonicParsing="false" onAction="#performEffortCategoryMvDn" prefHeight="28.0" prefWidth="90.0" text="Move Down" visible="true" />
+                <Button fx:id="btnEffortCategoriesSave" disable="true" layoutX="367.0" layoutY="25.0" mnemonicParsing="false" onAction="#performEffortCategoriesSave" prefHeight="28.0" prefWidth="176.0" text="Save" />
+                <Button fx:id="btnEffortCategoriesClear" layoutX="672.0" layoutY="25.0" mnemonicParsing="false" onAction="#performEffortCategoriesClear" prefHeight="28.0" prefWidth="154.0" text="Clear this Form " />
+                <Label layoutX="320.0" layoutY="93.0" text="Effort Category name" />
+                <TextField fx:id="fldEffortCategoryName" layoutX="320.0" layoutY="115.0" onKeyReleased="#rtnCheckFldEffortCategoriesNewName" prefWidth="298.0" />
+                <Label layoutX="320.0" layoutY="157.0" text="Effort Category Description" />
+                <Label layoutX="677.0" layoutY="96.0" text="Effort Category Options" />
+                <ComboBox fx:id="jcbEffortCategoryOption" layoutX="677.0" layoutY="116.0" onAction="#performEffortCategoryOptionFunction" prefHeight="21.0" prefWidth="176.0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Artifacts" />
+                      <String fx:value="Plans" />
+                      <String fx:value="Interruptions" />
+                      <String fx:value="Defects" />
+                      <String fx:value="Other" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <Label fx:id="msgEffortCategoryArtifact" layoutX="676.0" layoutY="160.0" text="Effort Category Artifact" />
+                <Label fx:id="msgEffortCategoryNewArtifact" layoutX="677.0" layoutY="393.0" text="Select a new Artifact" />
+                <ComboBox fx:id="jcbEffortCategoryNewArtifact" layoutX="662.0" layoutY="416.0" onAction="#jcbEffortCategoryNewArtifactAction" prefHeight="21.0" prefWidth="257.0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Item 1" />
+                      <String fx:value="Item 2" />
+                      <String fx:value="Item 3" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <Button fx:id="btnEffortCategoryArtNew" disable="true" layoutX="661.0" layoutY="448.0" mnemonicParsing="false" onAction="#performEffortCategoryArtNew" prefHeight="28.0" prefWidth="272.0" text="Insert" visible="true" />
+                <Button fx:id="btnEffortCategoryArtDelete" disable="true" layoutX="845.0" layoutY="493.0" mnemonicParsing="false" onAction="#performEffortCategoryArtDelete" prefHeight="28.0" prefWidth="90.0" text="Delete" visible="true" />
+                <Button fx:id="btnEffortCategoryArtMvUp" disable="true" layoutX="661.0" layoutY="493.0" mnemonicParsing="false" onAction="#performEffortCategoryArtMvUp" prefHeight="28.0" prefWidth="90.0" text="Move Up" visible="true" />
+                <Button fx:id="btnEffortCategoryArtMvDn" disable="true" layoutX="753.0" layoutY="493.0" mnemonicParsing="false" onAction="#performEffortCategoryArtMvDn" prefHeight="28.0" prefWidth="90.0" text="Move Dn" visible="true" />
+                <ListView fx:id="jlstEffortCategories" layoutX="29.0" layoutY="83.0" onKeyReleased="#jltEffortCategoriesListItemSelected" onMouseClicked="#jltEffortCategoriesListItemSelected" prefHeight="337.0" prefWidth="241.0" />
+                <Button fx:id="btnEffortCategoriesNewAbove" disable="false" layoutX="29.0" layoutY="449.0" mnemonicParsing="false" onAction="#performEffortCategoriesNewAbove" prefHeight="28.0" prefWidth="135.0" text="Insert UP" visible="false" />
+                <Button fx:id="btnEffortCategoriesNewBelow" disable="false" layoutX="165.0" layoutY="449.0" mnemonicParsing="false" onAction="#performEffortCategoriesNewBelow" prefHeight="28.0" prefWidth="135.0" text="Insert Dn" visible="false" />
+                <Label fx:id="msgEffortCategoryPlan" layoutX="676.0" layoutY="160.0" text="Effort Category Plans" />
+                <Label fx:id="msgEffortCategoryInterruption" layoutX="674.0" layoutY="160.0" text="Effort Category Interruption" />
+                <Label fx:id="msgEffortCategoryDefect" layoutX="674.0" layoutY="160.0" text="Effort Category Defects" />
+                <TextArea fx:id="fldEffortCategoryDesc" layoutX="320.0" layoutY="200.0" onKeyReleased="#rtnCheckFldEffortCategoriesNewDesc" prefHeight="212.0" prefWidth="298.0" wrapText="true" />
+                <ListView fx:id="jlstEffortCategoryDefect" layoutX="664.0" layoutY="186.0"  onKeyReleased="#jltEffortCategoryDefectListItemSelected"  onMouseClicked="#jltEffortCategoryDefectListItemSelected" prefHeight="200.0" prefWidth="257.0" />
+                <ListView fx:id="jlstEffortCategoryInterruption" layoutX="662.0" layoutY="186.0"  onKeyReleased="#jltEffortCategoryInterruptionListItemSelected" onMouseClicked="#jltEffortCategoryInterruptionListItemSelected" prefHeight="200.0" prefWidth="257.0" />
+                <ListView fx:id="jlstEffortCategoryPlan" layoutX="663.0" layoutY="186.0"  onKeyReleased="#jltEffortCategoryPlanListItemSelected" onMouseClicked="#jltEffortCategoryPlanListItemSelected" prefHeight="200.0" prefWidth="257.0" />
+                <ListView fx:id="jlstEffortCategoryArtifact" layoutX="663.0" layoutY="186.0"  onKeyReleased="#jltEffortCategoryArtifactListItemSelected" onMouseClicked="#jltEffortCategoryArtifactListItemSelected" prefHeight="200.0" prefWidth="257.0001220703125" />
+                <Label fx:id="msgEffortCategoryNewPlan" layoutX="677.0" layoutY="394.0" text="Select a new plan" />
+                <Label fx:id="msgEffortCategoryNewInterruption" layoutX="676.0" layoutY="394.0" text="Select a new interruption" />
+                <Label fx:id="msgEffortCategoryNewDefect" layoutX="675.0" layoutY="393.0" text="Select a new defect" />
+                <ComboBox fx:id="jcbEffortCategoryNewPlan" layoutX="662.0" layoutY="417.0" onAction="#jcbEffortCategoryNewPlanAction" prefHeight="21.0" prefWidth="258.0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Item 1" />
+                      <String fx:value="Item 2" />
+                      <String fx:value="Item 3" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <ComboBox fx:id="jcbEffortCategoryNewInterruption" layoutX="663.0" layoutY="417.0" onAction="#jcbEffortCategoryNewInterruptionAction" prefHeight="21.0" prefWidth="257.0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Item 1" />
+                      <String fx:value="Item 2" />
+                      <String fx:value="Item 3" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <ComboBox fx:id="jcbEffortCategoryNewDefect" layoutX="663.0" layoutY="417.0" onAction="#jcbEffortCategoryNewDefectAction" prefHeight="21.0" prefWidth="257.0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Item 1" />
+                      <String fx:value="Item 2" />
+                      <String fx:value="Item 3" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <Button fx:id="btnEffortCategoryArtAbove" disable="false" layoutX="661.0" layoutY="448.0" mnemonicParsing="false" onAction="#performEffortCategoryArtNewAbove" prefHeight="28.0" prefWidth="135.0" text="Insert Up" visible="false" />
+                <Button fx:id="btnEffortCategoryArtBelow" disable="false" layoutX="798.0" layoutY="448.0" mnemonicParsing="false" onAction="#performEffortCategoryArtNewBelow" prefHeight="28.0" prefWidth="135.0" text="InsertDn" visible="false" />
+                <Button fx:id="btnEffortCategoryPlanNew" disable="false" layoutX="661.0" layoutY="448.0" mnemonicParsing="false" onAction="#performEffortCategoryPlanNew" prefHeight="28.0" prefWidth="272.0" text="Insert" visible="false" />
+                <Button fx:id="btnEffortCategoryPlanAbove" disable="false" layoutX="661.0" layoutY="448.0" mnemonicParsing="false" onAction="#performEffortCategoryPlanNewAbove" prefHeight="28.0" prefWidth="135.0" text="Insert Up" visible="false" />
+                <Button fx:id="btnEffortCategoryPlanBelow" disable="false" layoutX="798.0" layoutY="448.0" mnemonicParsing="false" onAction="#performEffortCategoryPlanNewBelow" prefHeight="28.0" prefWidth="135.0" text="Insert Dn" visible="false" />
+                <Button fx:id="btnEffortCategoryPlanMvUp" disable="false" layoutX="661.0" layoutY="493.0" mnemonicParsing="false" onAction="#performEffortCategoryPlanMvUp" prefHeight="28.0" prefWidth="90.0" text="Move Up" visible="false" />
+                <Button fx:id="btnEffortCategoryPlanMvDn" disable="false" layoutX="753.0" layoutY="493.0" mnemonicParsing="false" onAction="#performEffortCategoryPlanMvDn" prefHeight="28.0" prefWidth="90.0" text="Move Dn" visible="false" />
+                <Button fx:id="btnEffortCategoryPlanDelete" disable="false" layoutX="845.0" layoutY="493.0" mnemonicParsing="false" onAction="#performEffortCategoryPlanDelete" prefHeight="28.0" prefWidth="90.0" text="Delete" visible="false" />
+                <Button fx:id="btnEffortCategoryInterruptionNew" disable="false" layoutX="661.0" layoutY="448.0" mnemonicParsing="false" onAction="#performEffortCategoryInterruptionNew" prefHeight="28.0" prefWidth="272.0" text="Insert" visible="false" />
+                <Button fx:id="btnEffortCategoryInterruptionDelete" disable="false" layoutX="845.0" layoutY="493.0" mnemonicParsing="false" onAction="#performEffortCategoryInterruptionDelete" prefHeight="28.0" prefWidth="90.0" text="Delete" visible="false" />
+                <Button fx:id="btnEffortCategoryInterruptionMvUp" disable="false" layoutX="661.0" layoutY="493.0" mnemonicParsing="false" onAction="#performEffortCategoryInterruptionMvUp" prefHeight="28.0" prefWidth="90.0" text="Move Up" visible="false" />
+                <Button fx:id="btnEffortCategoryInterruptionMvDn" disable="false" layoutX="753.0" layoutY="493.0" mnemonicParsing="false" onAction="#performEffortCategoryInterruptionMvDn" prefHeight="28.0" prefWidth="90.0" text="Move Dn" visible="false" />
+                <Button fx:id="btnEffortCategoryInterruptionAbove" disable="false" layoutX="661.0" layoutY="448.0" mnemonicParsing="false" onAction="#performEffortCategoryInterruptionNewAbove" prefHeight="28.0" prefWidth="135.0" text="Insert UP" visible="false" />
+                <Button fx:id="btnEffortCategoryInterruptionBelow" disable="false" layoutX="798.0" layoutY="448.0" mnemonicParsing="false" onAction="#performEffortCategoryInterruptionNewBelow" prefHeight="28.0" prefWidth="135.0" text="Insert Dn" visible="false" />
+                <Button fx:id="btnEffortCategoryDefectNew" disable="true" layoutX="661.0" layoutY="448.0" mnemonicParsing="false" onAction="#performEffortCategoryDefectNew" prefHeight="28.0" prefWidth="272.0" text="Insert" visible="false" />
+                <Button fx:id="btnEffortCategoryDefectDelete" disable="false" layoutX="845.0" layoutY="493.0" mnemonicParsing="false" onAction="#performEffortCategoryDefectDelete" prefHeight="28.0" prefWidth="90.0" text="Delete" visible="false" />
+                <Button fx:id="btnEffortCategoryDefectMvUp" disable="true" layoutX="661.0" layoutY="493.0" mnemonicParsing="false" onAction="#performEffortCategoryDefectMvUp" prefHeight="28.0" prefWidth="90.0" text="Move Up" visible="false" />
+                <Button fx:id="btnEffortCategoryDefectMvDn" disable="true" layoutX="753.0" layoutY="493.0" mnemonicParsing="false" onAction="#performEffortCategoryDefectMvDn" prefHeight="28.0" prefWidth="90.0" text="Move Dn" visible="false" />
+                <Button fx:id="btnEffortCategoryDefectAbove" disable="false" layoutX="661.0" layoutY="448.0" mnemonicParsing="false" onAction="#performEffortCategoryDefectNewAbove" prefHeight="28.0" prefWidth="135.0" text="Insert UP" visible="false" />
+                <Button fx:id="btnEffortCategoryDefectBelow" disable="false" layoutX="798.0" layoutY="448.0" mnemonicParsing="false" onAction="#performEffortCategoryDefectNewBelow" prefHeight="28.0" prefWidth="135.0" text="Insert Dn" visible="false" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Artifacts">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Label fx:id="msgArtifacts" font="$x1" layoutX="40.0" layoutY="21.0" prefHeight="36.0" prefWidth="291.0" text="Artifacts" />
+                <Button fx:id="btnArtifactsNew" disable="true" layoutX="41.0" layoutY="440.0" mnemonicParsing="false" onAction="#performArtifactsNew" prefHeight="28.0" prefWidth="272.0" text="Insert" visible="true" />
+                <Button fx:id="btnArtifactsDelete" disable="true" layoutX="223.0" layoutY="486.0" mnemonicParsing="false" onAction="#performArtifactsDelete" prefHeight="28.0" prefWidth="90.0" text="Delete" visible="true" />
+                <Button fx:id="btnArtifactsMvUp" disable="true" layoutX="41.0" layoutY="486.0" mnemonicParsing="false" onAction="#performArtifactMvUp" prefHeight="28.0" prefWidth="90.0" text="Move Up" visible="true" />
+                <Button fx:id="btnArtifactsMvDn" disable="true" layoutX="132.0" layoutY="486.0" mnemonicParsing="false" onAction="#performArtifactMvDn" prefHeight="28.0" prefWidth="90.0" text="Move Dn" visible="true" />
+                <Button fx:id="btnArtifactsSave" disable="true" layoutX="367.0" layoutY="25.0" mnemonicParsing="false" onAction="#performArtifactsSave" prefHeight="28.0" prefWidth="176.0" text="Save" />
+                <Button fx:id="btnArtifactsClear" layoutX="672.0" layoutY="25.0" mnemonicParsing="false" onAction="#performArtifactsClear" prefHeight="28.0" prefWidth="154.0" text="Clear this Form " />
+                <Label fx:id="msgArtifactName" layoutX="366.0" layoutY="78.0" text="Artifact name" />
+                <TextField fx:id="fldArtifactName" layoutX="367.0" layoutY="103.0" onKeyReleased="#rtnCheckFldArtifactsNewName" prefWidth="459.0" />
+                <Label fx:id="msgArtifactDesc" layoutX="366.0" layoutY="154.0" text="Artifact Description" />
+                <ListView fx:id="jlstArtifacts" layoutX="41.0" layoutY="89.0" onKeyReleased="#Artifactselection" onMouseClicked="#Artifactselection" prefHeight="332.0" prefWidth="231.0" />
+                <TextArea fx:id="fldArtifactDesc" layoutX="367.0" layoutY="201.0" onKeyReleased="#rtnCheckFldArtifactsNewDesc" prefHeight="250.0" prefWidth="459.0" wrapText="true" />
+                <Button fx:id="btnArtifactsNewAbove" disable="false" layoutX="42.0" layoutY="440.0" mnemonicParsing="false" onAction="#performArtifactsNewAbove" prefHeight="28.0" prefWidth="135.0" text="Insert Up" visible="false" />
+                <Button fx:id="btnArtifactsNewBelow" disable="false" layoutX="178.0" layoutY="440.0" mnemonicParsing="false" onAction="#performArtifactsNewBelow" prefHeight="28.0" prefWidth="135.0" text="Insert Dn" visible="false" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Plans">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Label fx:id="msgPlans" font="$x1" layoutX="40.0" layoutY="21.0" prefHeight="36.0" prefWidth="291.0" text="Plans" />
+                <Button fx:id="btnPlansNew" disable="true" layoutX="41.0" layoutY="440.0" mnemonicParsing="false" onAction="#performPlansNew" prefHeight="28.0" prefWidth="272.0" text="Insert" />
+                <Button fx:id="btnPlansDelete" disable="true" layoutX="223.0" layoutY="486.0" mnemonicParsing="false" onAction="#performPlansDelete" prefHeight="28.0" prefWidth="90.0" text="Delete" visible="true" />
+                <Button fx:id="btnPlansMvUp" disable="true" layoutX="41.0" layoutY="486.0" mnemonicParsing="false" onAction="#performPlanMvUp" prefHeight="28.0" prefWidth="90.0" text="Move Up" />
+                <Button fx:id="btnPlansMvDn" disable="true" layoutX="132.0" layoutY="486.0" mnemonicParsing="false" onAction="#performPlanMvDn" prefHeight="28.0" prefWidth="90.0" text="Move Dn" />
+                <Button fx:id="btnPlansSave" disable="true" layoutX="367.0" layoutY="25.0" mnemonicParsing="false" onAction="#performPlansSave" prefHeight="28.0" prefWidth="176.0" text="Save" />
+                <Button fx:id="btnPlansClear" layoutX="672.0" layoutY="25.0" mnemonicParsing="false" onAction="#performPlansClear" prefHeight="28.0" prefWidth="154.0" text="Clear this Form " />
+                <Label fx:id="msgPlanName" layoutX="366.0" layoutY="78.0" text="Plan name" />
+                <TextField fx:id="fldPlanName" layoutX="367.0" layoutY="103.0" onKeyReleased="#rtnCheckFldPlansNewName" prefWidth="459.0" />
+                <Label fx:id="msgPlanDesc" layoutX="366.0" layoutY="154.0" text="Plan Description" />
+                <ListView fx:id="jlstPlans" layoutX="41.0" layoutY="89.0" onKeyReleased="#Planselection" onMouseClicked="#Planselection" prefHeight="332.0" prefWidth="231.0" />
+                <TextArea fx:id="fldPlanDesc" layoutX="367.0" layoutY="201.0" onKeyReleased="#rtnCheckFldPlansNewDesc" prefHeight="250.0" prefWidth="459.0" wrapText="true" />
+                <Button fx:id="btnPlansNewAbove" disable="false" layoutX="42.0" layoutY="441.0" mnemonicParsing="false" onAction="#performPlansNewAbove" prefHeight="28.0" prefWidth="135.0" text="Insert Up" visible="false" />
+                <Button fx:id="btnPlansNewBelow" disable="false" layoutX="178.0" layoutY="441.0" mnemonicParsing="false" onAction="#performPlansNewBelow" prefHeight="28.0" prefWidth="135.0" text="Insert Dn" visible="false" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <!-- ******************************************interruption pane****************************************************** -->
+        <Tab text="Interruptions">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Label font="$x1" layoutX="41.0" layoutY="24.0" prefHeight="36.0" prefWidth="291.0" text="Interruptions" />
+                <Button id="btnInterruptions" fx:id="btnInterruptionsNew" disable="true" layoutX="41.0" layoutY="440.0" mnemonicParsing="false" onAction="#performInterruptionsNew" prefHeight="28.0" prefWidth="272.0" text="Insert" />
+                <Button fx:id="btnInterruptionsDelete" disable="true" layoutX="224.0" layoutY="483.0" mnemonicParsing="false" onAction="#performInterruptionsDelete" prefHeight="28.0" prefWidth="90.0" text="Delete" />
+                <Button fx:id="btnInterruptionsMvUp" disable="true" layoutX="42.0" layoutY="483.0" mnemonicParsing="false" onAction="#performInterruptionMvUp" prefHeight="28.0" prefWidth="90.0" text="Move Up" />
+                <Button fx:id="btnInterruptionsMvDn" disable="true" layoutX="133.0" layoutY="483.0" mnemonicParsing="false" onAction="#performInterruptionMvDn" prefHeight="28.0" prefWidth="90.0" text="Move Dn" />
+                <Button fx:id="btnInterruptionsSave" disable="true" layoutX="367.0" layoutY="25.0" mnemonicParsing="false" onAction="#performInterruptionsSave" prefHeight="28.0" prefWidth="176.0" text="Save" />
+                <Button fx:id="btnInterruptionsClear" layoutX="672.0" layoutY="25.0" mnemonicParsing="false" onAction="#performInterruptionsClear" prefHeight="28.0" prefWidth="154.0" text="Clear this Form " />
+                <Label layoutX="367.0" layoutY="73.0" text="Interruption name" />
+                <TextField fx:id="fldInterruptionName" layoutX="367.0" layoutY="103.0" onKeyReleased="#rtnCheckFldInterruptionsNewName" prefWidth="459.0" />
+                <Label layoutX="367.0" layoutY="157.0" text="Interruption  Description" />
+                <Button fx:id="btnInterruptionsNewAbove" disable="false" layoutX="43.0" layoutY="439.0" mnemonicParsing="false" onAction="#performInterruptionsNewAbove" prefHeight="28.0" prefWidth="135.0" text="Insert UP" visible="false" />
+                <Button fx:id="btnInterruptionsNewBelow" disable="false" layoutX="179.0" layoutY="439.0" mnemonicParsing="false" onAction="#performInterruptionsNewBelow" prefHeight="28.0" prefWidth="135.0" text="Insert Dn" visible="false" />
+                <TextArea fx:id="fldInterruptionDesc" layoutX="367.0" layoutY="201.0" onKeyReleased="#rtnCheckFldInterruptionsNewDesc" prefHeight="250.0" prefWidth="459.0" wrapText="true" />
+                <ListView fx:id="jlstInterruptions" layoutX="41.0" layoutY="89.0" onKeyReleased="#Interruptionselection"  onMouseClicked="#Interruptionselection" prefHeight="332.0" prefWidth="231.0" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Defects">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Label font="$x1" layoutX="41.0" layoutY="24.0" prefHeight="36.0" prefWidth="291.0" text="Defects" />
+                <Button fx:id="btnDefectsNew" disable="true" layoutX="41.0" layoutY="442.0" mnemonicParsing="false" onAction="#performDefectsNew" prefHeight="28.0" prefWidth="272.0" text="Insert" />
+                <Button fx:id="btnDefectsDelete" disable="true" layoutX="223.0" layoutY="486.0" mnemonicParsing="false" onAction="#performDefectsDelete" prefHeight="28.0" prefWidth="90.0" text="Delete" visible="true" />
+                <Button fx:id="btnDefectsMvUp" disable="true" layoutX="41.0" layoutY="486.0" mnemonicParsing="false" onAction="#performDefectMvUp" prefHeight="28.0" prefWidth="90.0" text="Move Up" />
+                <Button fx:id="btnDefectsMvDn" disable="true" layoutX="132.0" layoutY="486.0" mnemonicParsing="false" onAction="#performDefectMvDn" prefHeight="28.0" prefWidth="90.0" text="Move Dn" />
+                <Button fx:id="btnDefectsSave" disable="true" layoutX="367.0" layoutY="25.0" mnemonicParsing="false" onAction="#performDefectsSave" prefHeight="28.0" prefWidth="176.0" text="Save" />
+                <Button fx:id="btnDefectsClear" layoutX="672.0" layoutY="25.0" mnemonicParsing="false" onAction="#performDefectsClear" prefHeight="28.0" prefWidth="154.0" text="Clear this Form " />
+                <Label layoutX="367.0" layoutY="73.0" text="Defect name" />
+                <TextField fx:id="fldDefectName" layoutX="367.0" layoutY="103.0" onKeyReleased="#rtnCheckFldDefectsNewName" prefWidth="459.0" />
+                <Label layoutX="367.0" layoutY="157.0" text="Defect  Description" />
+                <Button fx:id="btnDefectsNewAbove" disable="false" layoutX="42.0" layoutY="441.0" mnemonicParsing="false" onAction="#performDefectsNewAbove" prefHeight="28.0" prefWidth="135.0" text="Insert UP" visible="false" />
+                <Button fx:id="btnDefectsNewBelow" disable="false" layoutX="178.0" layoutY="441.0" mnemonicParsing="false" onAction="#performDefectsNewBelow" prefHeight="28.0" prefWidth="135.0" text="Insert Dn" visible="false" />
+                <TextArea fx:id="fldDefectDesc" layoutX="367.0" layoutY="201.0" onKeyReleased="#rtnCheckFldDefectsNewDesc" prefHeight="250.0" prefWidth="459.0" wrapText="true" />
+                <ListView fx:id="jlstDefects" layoutX="41.0" layoutY="89.0" onKeyReleased="#defectselection"  onMouseClicked="#defectselection" prefHeight="332.0" prefWidth="231.0" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+    <Label layoutX="55.0" layoutY="572.0" prefHeight="28.0" prefWidth="272.0" text="Please Insert an Existing Project name" />
+    <TextField fx:id="fldFileName" layoutX="55.0" layoutY="598.0" onKeyReleased="#rtnCheckFldFileName" prefHeight="22.0" prefWidth="257.0" />
+    <Label layoutX="55.0" layoutY="619.0" prefHeight="28.0" prefWidth="272.0" text="Please Insert a new Project name" />
+    <TextField fx:id="fldNewFileName" layoutX="55.0" layoutY="647.0" onKeyReleased="#rtnCheckFldNewFileName" prefHeight="22.0" prefWidth="257.0" />
+    <Button fx:id="btnReadData" disable="true" layoutX="501.0" layoutY="595.0" mnemonicParsing="false" onAction="#readTheDefinitions" prefHeight="28.0" prefWidth="176.0" text="Load Definitions" />
+    <Button fx:id="btnSaveDefinitions" disable="true" layoutX="499.0" layoutY="637.0" mnemonicParsing="false" onAction="#saveTheDefinitions" prefHeight="28.0" prefWidth="176.0" text="Save Definitions" />
+    <Label fx:id="msgFileFound" layoutX="361.0" layoutY="601.0" text="" />
+    <Label fx:id="msgNewFileFound" layoutX="361.0" layoutY="649.0" text="" />
+  </children>
+</AnchorPane>
